@@ -2,7 +2,7 @@ import os
 from uuid import uuid4
 from agno.agent import Agent
 from agno.run.agent import RunOutput
-from agno.models.openai import OpenAIChat
+from agno.models.google import Gemini
 from agno.tools.firecrawl import FirecrawlTools
 from elevenlabs import ElevenLabs
 import streamlit as st
@@ -35,7 +35,7 @@ if st.button("🎙️ Generate Podcast", disabled=not all([google_api_key, eleve
                 # Create agent for scraping and summarization
                 agent = Agent(
                     name="Blog Summarizer",
-                    model=OpenAIChat(id="gpt-4o"),
+                    model=Gemini(id="gemini-2.5-flash-preview-05-20", api_key=google_api_key),
                     tools=[FirecrawlTools()],
                     instructions=[
                         "Scrape the blog URL and create a concise, engaging summary (max 2000 characters) suitable for a podcast.",
