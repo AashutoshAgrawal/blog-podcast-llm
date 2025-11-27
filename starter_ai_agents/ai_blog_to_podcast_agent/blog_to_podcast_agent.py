@@ -38,7 +38,7 @@ if st.button("🎙️ Generate Podcast", disabled=not all([google_api_key, eleve
                     name="Blog Summarizer",
                     model=Gemini(id="gemini-2.5-flash", api_key=google_api_key),
                     tools=[],
-                    search=True,
+                    # search=True,
                     instructions=[
                         "Scrape the blog URL and create a concise, engaging summary (max 2000 characters) suitable for a podcast.",
                         "The summary should be conversational and capture the main points."
