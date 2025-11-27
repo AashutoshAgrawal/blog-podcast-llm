@@ -1,3 +1,7 @@
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
 import os
 from uuid import uuid4
 from agno.agent import Agent
@@ -6,10 +10,7 @@ from agno.models.google import Gemini
 from agno.tools.firecrawl import FirecrawlTools
 from elevenlabs import ElevenLabs
 import streamlit as st
-import subprocess
-import sys
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
 
 # Streamlit Setup
 st.set_page_config(page_title="📰 ➡️ 🎙️ Blog to Podcast", page_icon="🎙️")
