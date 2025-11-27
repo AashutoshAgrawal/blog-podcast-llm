@@ -36,7 +36,7 @@ if st.button("🎙️ Generate Podcast", disabled=not all([google_api_key, eleve
                 # Create agent for scraping and summarization
                 agent = Agent(
                     name="Blog Summarizer",
-                    model=Gemini(id="gemini-2.5-flash-preview-05-20", api_key=google_api_key),
+                    model=Gemini(id="gemini-flash-latest", api_key=google_api_key),
                     tools=[FirecrawlTools()],
                     instructions=[
                         "Scrape the blog URL and create a concise, engaging summary (max 2000 characters) suitable for a podcast.",
