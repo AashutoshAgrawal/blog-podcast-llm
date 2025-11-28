@@ -37,29 +37,28 @@ if st.button("🎙️ Generate Podcast", disabled=not all([google_api_key, eleve
                 agent = Agent(
                     name="Blog Summarizer",
                     model=Gemini(id="gemini-2.5-flash", api_key=google_api_key),
-                    tools=[],
-                    # search=True,
+                    tools=[FirecrawlTools()],
                     instructions=[
                         "Scrape the blog URL and create a concise, engaging summary (max 2000 characters) suitable for a podcast.",
                         "The summary should be conversational and capture the main points."
                     ],
                 )
-                
+                print("gaand fatt gyi 1")
                 # Get summary
                 response: RunOutput = agent.run(f"Scrape and summarize this blog for a podcast: {url}")
                 summary = response.content if hasattr(response, 'content') else str(response)
-                
+                print("gaand fatt gyi 2")
                 if summary:
                     # Initialize ElevenLabs client and generate audio
                     client = ElevenLabs(api_key=elevenlabs_key)
-                    
+                    print("gaand fatt gyi 3")
                     # Generate audio using text_to_speech.convert
                     audio_generator = client.text_to_speech.convert(
                         text=summary,
                         voice_id="JBFqnCBsd6RMkjVDRZzb",
                         model_id="eleven_multilingual_v2"
                     )
-                    
+                    print("gaand fatt gyi 4")
                     # Collect audio chunks if it's a generator
                     audio_chunks = []
                     for chunk in audio_generator:
