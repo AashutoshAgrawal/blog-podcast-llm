@@ -32,7 +32,7 @@ if st.button("🎙️ Generate Podcast", disabled=not all([google_api_key, eleve
                 # Set API keys
                 os.environ["GOOGLE_API_KEY"] = google_api_key
                 os.environ["FIRECRAWL_API_KEY"] = firecrawl_key
-                
+                print("gaand fatt gyi 0")
                 # Create agent for scraping and summarization
                 agent = Agent(
                     name="Blog Summarizer",
